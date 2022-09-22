@@ -17,8 +17,9 @@ const catchMouseClick = (evt, scene, camera, dev, devSign, faq) => {
 
         if(intersects[i].object.uuid == dev || intersects[i].object.uuid == devSign){
             capturePosition(camera);
-            return window.location.href = "/contacts";
+            return window.open('https://mariomazzola-64e1a.web.app/', '_blank');
         }
+
         if(intersects[i].object.uuid == faq){
             capturePosition(camera);
             return window.location.href = "/FAQ";
@@ -29,6 +30,7 @@ const catchMouseClick = (evt, scene, camera, dev, devSign, faq) => {
             capturePosition(camera);
             window.location.href = "/art/"+positionInArtList._id;
         }
+        
     }
 }
 
