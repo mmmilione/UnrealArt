@@ -1,0 +1,114 @@
+body{
+    font-family: Poppins;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(117, 114, 114);
+    background-image: url("../materials/bottomwall.jpeg");
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 92vh;
+    width: 100vw !important;
+}
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right !important;
+    padding-right: 20px;
+}
+
+.red{
+    color: red;
+}
+
+.darkBG{
+    background-color: black;
+}
+
+.greenBG{
+    background-color: green;
+}
+
+.redBG{
+    background-color: red;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(117, 114, 114);
+}
+
+.box{
+    width: 100%;
+}
+
+canvas{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1
+}
+
+.content{
+    background-color: white;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    min-width: 600px;
+    max-width: 70%;
+}
+
+.hint{
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/*MODALS*/
+
+.modal-background{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 6;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-title{
+    font-weight: bold;
+    font-size: 20px !important;
+}
+
+.close-modal-icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: yellow;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .content{
+        width: 100%;
+        min-width: initial;
+    }
+}
