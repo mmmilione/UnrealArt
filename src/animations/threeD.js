@@ -1,6 +1,5 @@
-import * as THREE from 'three';
 import makeRoom from './room.js';
-import { catchMouseClick } from './interactions.js';
+import { catchMouseClick, catchMouseMove } from './interactions.js';
 import { moveMob, stopMoveMob, setupInitialCameraPosition, updateCamera } from './handleCamera.js';
 import { makeArt, make3Dobj, makeSign, makeFrame } from './factory';
 
@@ -48,12 +47,8 @@ export const init3JS = () => {
     camera = initRoom.camera;
     scene = initRoom.scene;
 
-    //Set Camara position and add controls of camera positions
+    //Set Camara position 
     setupInitialCameraPosition(camera);
-    document.addEventListener('keydown', (evt) => updateCamera(evt, camera));
-
-    //Interact with objects
-    document.addEventListener('click', (evt) => catchMouseClick(evt, scene, camera, dev, devSign, faq));
 
     //Set up mob controls
     const forward = document.querySelector('#forwardBTN');
@@ -94,6 +89,11 @@ export const init3JS = () => {
         makeArt(i, "right", scene);
         makeArt(i, "left", scene);
     }
+
+    //Interact with objects (clicks and movements)
+    document.addEventListener('click', (evt) => catchMouseClick(evt, scene, camera, dev, devSign, faq));
+    document.addEventListener('mousemove', (evt) => catchMouseMove(evt, scene, camera, dev, devSign, faq));
+    document.addEventListener('keydown', (evt) => updateCamera(evt, camera));
 
     //Animate
     return setInterval(() => animate(), 30)

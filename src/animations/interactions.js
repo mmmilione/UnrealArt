@@ -34,4 +34,35 @@ const catchMouseClick = (evt, scene, camera, dev, devSign, faq) => {
     }
 }
 
-export { catchMouseClick }; 
+const catchMouseMove = (evt, scene, camera, dev, devSign, faq) => {
+
+    pointer.x = (evt.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(evt.clientY / window.innerHeight) * 2  + 1;
+
+    raycaster.setFromCamera(pointer, camera);
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    for(let i = 0; i < intersects.length; i++){
+
+        const positionInArtList = artList.find(item => item.sceneID === intersects[i].object.uuid);
+
+        if(intersects[i].object.uuid == dev || intersects[i].object.uuid == devSign){
+            return document.body.style.cursor = "pointer";
+        }
+
+        else if(intersects[i].object.uuid == faq){
+            return document.body.style.cursor = "pointer";
+        }
+
+        else if( positionInArtList ){
+            return document.body.style.cursor = "pointer";
+        }
+
+        else {
+            return document.body.style.cursor = "auto";
+        }
+        
+    }
+}
+
+export { catchMouseClick, catchMouseMove }; 
